@@ -1,0 +1,110 @@
+:root {
+    --chart-bg-color: #f4eec7;
+    --header-bg-color: #fe9801; 
+    --chart-bar01: #ccda46;
+    --chart-bar02: #697c37;
+}
+
+* {
+    box-sizing: border-box;
+  }
+  
+html {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+/* button:focus {
+  outline: none;
+} */
+
+/* .Container {
+ display: grid;
+ grid-template-columns: 10% minmax(20rem, 80rem) 10%;
+ grid-template-rows: 5rem 100% 2.5rem;
+ grid-template-areas: " header header header "
+                      " left-side main right-side "
+                      " footer footer footer " ; 
+} */
+
+.Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header {
+  grid-area: header;
+  text-align: center;
+  margin-bottom: 1rem;
+  /* border: 1px solid black; */
+  background-color: skyblue;
+}
+
+.main {
+  width: 90%;
+  height: 100%;
+  /* border: 1px solid black; */
+  background-color: whitesmoke;
+  align-self: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.footer {
+  height: 2.5rem;
+  margin-top: 1rem;
+  text-align: center;
+  grid-area: footer;
+  /* border: 1px solid black; */
+  background-color: skyblue;
+}
+
+.BarChart-header {
+  background-color: lightgray;
+  text-align: center;
+  padding: 0.5rem;
+  height: 2rem;
+}
+
+.BarChart-frame {
+  background-color: var(--chart-bg-color);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  height: 220px;
+  border-bottom: 2px solid gray;
+}
+
+.BarChart-bar {
+  height: 200px;
+  width: 300px;
+  background-color: var(--chart-bar01);
+  border: 0px 0px 0px 0px solid black;
+  border-bottom: 0px;
+  padding-top: 1rem;
+  margin-top: 5px;
+  margin-right: 2%;
+  text-align: center;
+  transition: box-shadow 0.5s;
+}
+
+.BarChart-bar:nth-child(odd) {
+  background-color: var(--chart-bar02);
+}
+.BarChart-bar:first-child {
+  margin-left: 2%;
+}
+.BarChart-bar:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.96);
+}
+/* @media screen and (max-width: 40rem) {
+  .Container{  } 
+} 
+*/
+
+/* 
+{"rates":{"CAD":1.4565,"HKD":8.6591,"ISK":136.6,"PHP":56.521,"DKK":7.4727,"HUF":332.94,"CZK":25.144,"AUD":1.6188,"RON":4.7803,"SEK":10.559,"IDR":15262.3,"INR":78.8825,"BRL":4.635,"RUB":68.4386,"HRK":7.4443,"JPY":122.43,"THB":33.693,"CHF":1.0751,"SGD":1.5011,"PLN":4.2265,"BGN":1.9558,"TRY":6.558,"CNY":7.6746,"NOK":9.882,"NZD":1.6905,"ZAR":16.0218,"USD":1.1142,"MXN":20.9542,"ILS":3.8561,"GBP":0.85683,"KRW":1289.22,"MYR":4.5409},"base":"EUR","date":"2020-01-15"}
+*/
