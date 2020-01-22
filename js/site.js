@@ -10,7 +10,14 @@ const createSelectBtn = currency => {
     btn.textContent = currency;
     btn.addEventListener('click', ()=> {
         console.log(`Clicked button ${currency}`);
-        currencies.push(currency);
+        btn.classList.toggle("btn--selected");
+        if (btn.className === 'btn--selected') {
+            currencies.push(currency);
+            currencies = [...new Set(currencies)];
+        } else {
+            currencies = currencies.filter(val =>  val !== currency);
+        }
+        console.log(currencies);
         updateBarChart();
     });
     return btn;
@@ -51,6 +58,7 @@ const createGraph = (rateMap, ceiling) => {
 
     console.log("In createGraph...")
     for ( const [ k, v ] of Object.entries(rateMap)) {
+        console.log(`${k}: ${v}`)
         createBar(k, v, ceiling);
     }
 };
@@ -81,12 +89,14 @@ const updateBarChart = () => {
         if (! listOfCountries.children[0]) {
             createSelectBtnAll(exchangeRates);
         }
+        console.log(`In updateBarChart, ${currencies}`) 
 
+        // clean the content first
+        selectedCurrencies = {};
         // find the largest currency Rate among the selected currencies
         let largest = 1;
         for (const i of currencies) {
             selectedCurrencies[i] = exchangeRates[i];
-
             if (exchangeRates[i] > largest) {
                 largest = exchangeRates[i];
             }
