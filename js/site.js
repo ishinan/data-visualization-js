@@ -1,10 +1,34 @@
-console.log('Hello...')
+console.log('Hello');
 
 // Default Currencies
+const baseCurrencies = ['CAD','HKD','ISK','PHP','DKK','HUF','CZK','AUD','RON','SEK','IDR','INR','BRL','RUB','HRK','JPY','THB','CHF','SGD','PLN','BGN','TRY','CNY','NOK','NZD','ZAR','USD','MXN','ILS','GBP','KRW','MYR','EUR'];
 let currencies = ['USD', 'HKD', 'AUD', 'GBP', 'CNY'];
-let selectedCurrencies= {};
+let baseCurrency = 'EUR';
 
-// Create a button 
+// Create a Base Selection 
+const createBaseCurrencyBtn = bases => {
+    const baseSelectBtn = document.createElement('select');
+    for (const base of bases){
+        const baseOption = document.createElement('option');
+        baseOption.value = base;
+        baseOption.textContent = base;
+        if (base === baseCurrency) {
+            baseOption.selected = true;
+        }
+        baseSelectBtn.appendChild(baseOption);
+    }
+    const baseSelectElement = document.getElementById('base-selection')
+    baseSelectElement.appendChild(baseSelectBtn);
+    baseSelectElement.addEventListener('change', event => {
+        baseCurrency = event.target.value;
+        console.log(baseCurrency);
+
+        updateBarChart(); 
+    })
+};
+
+
+// Create a button and update the chart 
 const createSelectBtn = currency => {
     let btn = document.createElement("button");
     btn.textContent = currency;
@@ -58,7 +82,6 @@ const createGraph = (rateMap, ceiling) => {
 
     console.log("In createGraph...")
     for ( const [ k, v ] of Object.entries(rateMap)) {
-        console.log(`${k}: ${v}`)
         createBar(k, v, ceiling);
     }
 };
@@ -68,7 +91,8 @@ let exchangeBase = "";
 let exchangeDate = "";
 
 const updateBarChart = () => {
-    url="https://api.exchangeratesapi.io/latest";
+
+    url=`https://api.exchangeratesapi.io/latest?base=${baseCurrency}`;
     fetch(url)
     .then(res => res.json())
     .then(fetchedData => {
@@ -77,22 +101,14 @@ const updateBarChart = () => {
         exchangeBase = fetchedData.base;
         exchangeDate = fetchedData.date;
 
-        // console.log(exchangeRates);
-        // console.log(exchangeBase);
-        // console.log(exchangeDate);
-        // for (const [key, value] of Object.entries(exchangeRates)) {
-        //         console.log(`${key}: ${value}`);
-        // }
-
         // Create Select Buttons if they do not exist 
         const listOfCountries = document.getElementById('list-box');
         if (! listOfCountries.children[0]) {
             createSelectBtnAll(exchangeRates);
         }
-        console.log(`In updateBarChart, ${currencies}`) 
 
         // clean the content first
-        selectedCurrencies = {};
+        let selectedCurrencies = {};
         // find the largest currency Rate among the selected currencies
         let largest = 1;
         for (const i of currencies) {
@@ -109,4 +125,5 @@ const updateBarChart = () => {
     });
 };
 
+createBaseCurrencyBtn(baseCurrencies) 
 updateBarChart()
