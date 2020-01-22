@@ -100,11 +100,12 @@ body {
 .BarChart-bar:hover {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.96);
 }
+
+.btn--selected {
+  background-color: tomato;
+}
+
 /* @media screen and (max-width: 40rem) {
   .Container{  } 
 } 
-*/
-
-/* 
-{"rates":{"CAD":1.4565,"HKD":8.6591,"ISK":136.6,"PHP":56.521,"DKK":7.4727,"HUF":332.94,"CZK":25.144,"AUD":1.6188,"RON":4.7803,"SEK":10.559,"IDR":15262.3,"INR":78.8825,"BRL":4.635,"RUB":68.4386,"HRK":7.4443,"JPY":122.43,"THB":33.693,"CHF":1.0751,"SGD":1.5011,"PLN":4.2265,"BGN":1.9558,"TRY":6.558,"CNY":7.6746,"NOK":9.882,"NZD":1.6905,"ZAR":16.0218,"USD":1.1142,"MXN":20.9542,"ILS":3.8561,"GBP":0.85683,"KRW":1289.22,"MYR":4.5409},"base":"EUR","date":"2020-01-15"}
 */
