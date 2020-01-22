@@ -69,6 +69,14 @@ body {
   height: 2rem;
 }
 
+.BarChart-header--title {
+  display: inline-block;
+}
+
+.BarChart-header--base-selection {
+  display: inline-block;
+}
+
 .BarChart-frame {
   background-color: var(--chart-bg-color);
   display: flex;
