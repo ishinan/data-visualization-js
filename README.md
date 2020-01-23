@@ -1,8 +1,10 @@
 # data-visualization-js
 
-A Simple Javascript to fetch exchange currency data and present them as a bar chart.
-
-![Sample Chart](sample_page.png)
+- A Simple Javascript to fetch exchange currency data and present them as a bar chart.
+- One page site(https://ishinan.github.io/data-visualization-js/)
+- Sample Image
+  
+  ![Sample Chart](sample_page.png)
 
 ## Chart Feature
 
