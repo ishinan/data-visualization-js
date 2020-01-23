@@ -1,3 +1,4 @@
+
 console.log('Hello');
 
 // Default Currencies
@@ -103,6 +104,7 @@ const updateBarChart = () => {
         exchangeRates = fetchedData.rates;
         exchangeBase = fetchedData.base;
         exchangeDate = fetchedData.date;
+        exchangeRates[baseCurrency] = 1.0;
 
         // Create Select Buttons if they do not exist 
         const listOfCountries = document.getElementById('list-box');
