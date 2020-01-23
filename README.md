@@ -2,6 +2,8 @@
 
 A Simple Javascript to fetch exchange currency data and present them as a bar chart.
 
+![Sample Chart](sample_page.png)
+
 ## Chart Feature
 
 - When reloaded,  default five currencies are selected.
