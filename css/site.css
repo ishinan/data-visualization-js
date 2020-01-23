@@ -92,7 +92,7 @@ body {
   background-color: var(--chart-bar01);
   border: 0px 0px 0px 0px solid black;
   border-bottom: 0px;
-  padding-top: 1rem;
+  padding-top: 0.2rem;
   margin-top: 5px;
   margin-right: 2%;
   text-align: center;
