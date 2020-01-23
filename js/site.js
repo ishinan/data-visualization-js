@@ -32,6 +32,9 @@ const createBaseCurrencyBtn = bases => {
 const createSelectBtn = currency => {
     let btn = document.createElement("button");
     btn.textContent = currency;
+    if (currencies.includes(currency)) {
+        btn.classList.add("btn--selected");
+    }
     btn.addEventListener('click', ()=> {
         console.log(`Clicked button ${currency}`);
         btn.classList.toggle("btn--selected");
@@ -62,7 +65,7 @@ const createBar = (srcCurrency, srcRate, ceiling) => {
     let chart = document.querySelector('#chart-location');
     // full hight is 220 px right now
     // let height = 70;
-    const maxHeight = 220;
+    const maxHeight = 240;
     let height = maxHeight / ceiling * srcRate;
     let bar = document.createElement("div");
     bar.classList.add("BarChart-bar");
