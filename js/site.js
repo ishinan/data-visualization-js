@@ -1,10 +1,10 @@
-
-console.log('Hello');
+console.log('Starting...');
 
 // Default Currencies
 const baseCurrencies = ['CAD','HKD','ISK','PHP','DKK','HUF','CZK','AUD','RON','SEK','IDR','INR','BRL','RUB','HRK','JPY','THB','CHF','SGD','PLN','BGN','TRY','CNY','NOK','NZD','ZAR','USD','MXN','ILS','GBP','KRW','MYR','EUR'];
-let currencies = ['USD', 'HKD', 'AUD', 'GBP', 'CNY'];
 let baseCurrency = 'EUR';
+let currencies = ['USD', 'HKD', 'AUD', 'GBP', 'CNY'];
+currencies.push(baseCurrency);
 
 // Create a Base Selection 
 const createBaseCurrencyBtn = bases => {
